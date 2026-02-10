@@ -3,306 +3,264 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Cek Kuota XL AXIS</title>
+<title>Cek Kuota XL & Axis</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --card:#ffffff;
-  --border:#e6e8ec;
-  --text:#0f172a;
-  --muted:#6b7280;
-  --accent:#1e88e5;
-  --accent2:#6fb7ff;
-  --shadow:0 10px 28px rgba(0,0,0,.08);
-  --soft:#f7f9fc;
+  --bg1:#0c69c9;
+  --bg2:#083f8b;
+  --bg3:#021f4f;
+
+  --stroke:rgba(255,255,255,.11);
+
+  --text:#eef6ff;
+  --muted:rgba(238,246,255,.75);
+
+  --orange:#ff9f0a;
+  --blue:#0a90df;
+
+  --shadow: 0 18px 50px rgba(0,0,0,.33);
 }
 
 *{box-sizing:border-box}
 
 body{
-  font-family:'Poppins',sans-serif;
   margin:0;
   min-height:100vh;
-  padding:24px 16px;
+  font-family:'Poppins',sans-serif;
   color:var(--text);
-
+  padding:18px 12px 24px;
   background:
-    radial-gradient(1200px 700px at 20% 10%, rgba(30,136,229,.15), transparent 60%),
-    radial-gradient(900px 600px at 85% 30%, rgba(111,183,255,.15), transparent 60%),
-    linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.70)),
-    url("https://buyer.duniadigitalsb.my.id/uploads/logo/circelcuanmvlogo.png");
-
-  background-repeat:no-repeat;
-  background-position:center;
-  background-size:auto, auto, cover, contain;
-  background-attachment:fixed;
+    radial-gradient(900px 620px at 35% 10%, rgba(120,205,255,.28), transparent 62%),
+    linear-gradient(180deg, var(--bg1), var(--bg2), var(--bg3));
 }
 
-.wrap{ max-width:460px; margin:auto; }
+.wrap{max-width:410px;margin:0 auto;}
 
-.container{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:22px;
-  padding:22px;
-  box-shadow:var(--shadow);
+.panel{
+  background: linear-gradient(180deg, rgba(47,111,160,.92), rgba(31,85,127,.92));
+  border:1px solid var(--stroke);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  padding:14px 10px 14px;
 }
 
-h2{
+.hTitle{
   text-align:center;
-  margin:0 0 6px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.6px;
   font-size:22px;
-  font-weight:700;
+  line-height:1.15;
+  margin:4px 0 10px;
 }
 
-.sub{
-  text-align:center;
-  margin:0 0 18px;
-  font-size:13px;
-  color:var(--muted);
+.label{
+  font-weight:800;
+  font-size:15px;
+  margin:6px 0 7px;
 }
 
-/* === MENU (1 tombol) === */
-.menu3{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:10px;
-  margin:6px 0 16px;
-}
-.menu3 button{
-  border:1px solid var(--border);
-  background:#fff;
-  border-radius:14px;
+.input{
+  width:100%;
   padding:12px 10px;
-  text-decoration:none;
+  border-radius:11px;
+  border:1px solid rgba(255,255,255,.18);
+  outline:none;
+  background: rgba(93,127,156,.50);
+  color: rgba(238,246,255,.95);
+  font-size:13px;
+}
+.input::placeholder{ color: rgba(234,244,255,.55); }
+
+.btnMain{
+  margin-top:10px;
+  width:100%;
+  border:none;
   cursor:pointer;
+  padding:11px 12px;
+  border-radius:11px;
+  font-weight:900;
+  font-size:15px;
+  color:#fff;
+  background: var(--orange);
+  box-shadow: 0 10px 18px rgba(255,159,10,.20);
   display:flex;
-  flex-direction:column;
   align-items:center;
   justify-content:center;
-  gap:4px;
-  box-shadow:0 8px 18px rgba(15,23,42,.06);
-  transition:.15s ease;
-  color:var(--text);
-  font-family:'Poppins',sans-serif;
+  gap:8px;
 }
-.menu3 button:hover{
-  transform:translateY(-1px);
-  border-color:#d6dae3;
-}
-.menu-ico{ font-size:18px; }
-.menu-txt{ font-size:12px; font-weight:700; line-height:1.1; text-align:center; }
-.menu-sub{ font-size:11px; color:var(--muted); line-height:1.1; text-align:center; }
+.btnMain:disabled{opacity:.65; cursor:not-allowed;}
+.btnMain .ico{ font-size:16px; transform: translateY(1px); }
 
-/* tombol kuota dibuat aksen */
-.menu3 .primary{
-  border:none;
-  color:#fff;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  box-shadow:0 10px 22px rgba(30,136,229,.22);
-}
-.menu3 .primary:hover{ filter:brightness(1.02); }
-
-.field{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:12px;
-  border-radius:14px;
-  border:1px solid var(--border);
-  background:#fff;
-}
-
-.icon{
-  width:36px;
-  height:36px;
-  border-radius:12px;
-  display:grid;
-  place-items:center;
-  background:#eef4ff;
-  color:var(--accent);
-  font-size:18px;
-}
-
-input{
-  width:100%;
-  border:none;
-  outline:none;
-  background:transparent;
-  color:var(--text);
-  font-size:15px;
-}
-input::placeholder{ color:#9ca3af; }
-
-.note{
-  font-size:12px;
-  margin:10px 2px 16px;
-  color:var(--muted);
-}
-
-button.big{
-  width:100%;
-  padding:14px;
-  border:none;
-  border-radius:14px;
-  font-weight:700;
-  font-size:16px;
-  cursor:pointer;
-  color:#fff;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  box-shadow:0 8px 20px rgba(30,136,229,.25);
-}
-button:disabled{ opacity:.6; cursor:not-allowed; }
-
-.result{ margin-top:18px; }
-
-.card{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:14px;
-  margin-bottom:12px;
-}
-
-.card-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  margin-bottom:10px;
-}
-.card-head h4{
-  margin:0;
-  font-size:14px;
-  font-weight:700;
-}
-.badge{
-  font-size:11px;
-  padding:6px 10px;
-  border-radius:999px;
-  background:#f3f4f6;
-  color:#374151;
-  font-weight:600;
-}
-
-.grid{
+.row2{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:10px;
+  gap:9px;
+  margin-top:9px;
 }
-.kv{
-  background:var(--soft);
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:10px;
-}
-.k{ font-size:11px; color:var(--muted); margin-bottom:3px; }
-.v{ font-size:13px; color:var(--text); word-break:break-word; }
-
-.pkg-toggle{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+.btnSmall{
+  border:none;
   cursor:pointer;
-  padding:12px;
-  border-radius:14px;
-  background:#f9fafb;
-  border:1px solid var(--border);
+  padding:9px 10px;
+  border-radius:11px;
+  font-weight:900;
+  font-size:14px;
+  color:#eaf5ff;
+  background: var(--blue);
+  box-shadow: 0 9px 16px rgba(10,144,223,.20);
 }
-.pkg-name{ font-weight:700; }
-.pkg-exp{ font-size:12px; color:var(--muted); }
-.chev{
-  width:32px;
-  height:32px;
-  border-radius:10px;
-  display:grid;
-  place-items:center;
-  background:#eef4ff;
-  color:var(--accent);
-  font-weight:800;
-  transition:.2s;
-}
-.pkg.open .chev{ transform:rotate(90deg); }
 
-.pkg-content{
+/* ===== RESULT WRAP MINI ===== */
+.resultWrap{
+  margin-top:10px;
+  border-radius:12px;
+  background: rgba(0,0,0,.10);
+  border:1px solid var(--stroke);
+  overflow:hidden;
+}
+.resultContent{ padding:9px; }
+
+/* ===== INFO CARD (MSISDN) SUPER MINI ===== */
+.infoCard{
+  border-radius:11px;
+  padding:10px;
+  background: linear-gradient(180deg, rgba(13,36,58,.68), rgba(10,28,46,.56));
+  border:1px solid var(--stroke);
+}
+
+.infoRow{
+  display:grid;
+  grid-template-columns:100px 10px 1fr;
+  gap:7px;
+  padding:1px 0;
+  font-size:12px;
+}
+.infoRow .k{ font-weight:700; color: rgba(238,246,255,.95); }
+.infoRow .c{ text-align:center; color: rgba(238,246,255,.70); }
+.infoRow .v{ font-weight:700; color: rgba(238,246,255,.98); }
+
+.hr{ height:1px; background: rgba(255,255,255,.12); margin:8px 0; }
+
+.volteNote{
+  display:flex; gap:7px; align-items:flex-start;
+  font-size:11.5px;
+  color: rgba(238,246,255,.92);
+}
+.volteNote b{ color:#38d06a; }
+
+/* ===== PACKAGES SUPER MINI ===== */
+.packList{ margin-top:9px; display:flex; flex-direction:column; gap:9px; }
+
+.pkg{
+  border-radius:11px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.13);
+  background: rgba(0,0,0,.18);
+  box-shadow: 0 9px 18px rgba(0,0,0,.16);
+}
+
+.pkgHead{
+  padding:9px 10px;
+  cursor:pointer;
+  user-select:none;
+  background: rgba(0,0,0,.16);
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.pkgTitle{
+  font-weight:900;
+  font-size:13.5px;
+  color: rgba(238,246,255,.96);
+}
+
+.pkgBody{
   max-height:0;
   opacity:0;
   overflow:hidden;
-  transition:.25s ease;
+  transition:.20s ease;
+  background: rgba(0,0,0,.10);
 }
-.pkg.open .pkg-content{
-  max-height:1400px;
+.pkg.open .pkgBody{
+  max-height:2400px;
   opacity:1;
-  margin-top:10px;
 }
 
-.line{
+.benefit{
+  padding:9px 10px 9px;
+}
+
+.bLine{
   display:flex;
   justify-content:space-between;
-  font-size:13px;
-  margin:8px 0 6px;
+  gap:8px;
+  align-items:flex-end;
+  font-size:12px;
+  color: rgba(238,246,255,.92);
+  margin-bottom:7px;
 }
-.progress{
-  background:#e5e7eb;
+.bName{ font-weight:800; }
+.bVal{ font-weight:900; }
+
+.bar{
+  height:7px;
   border-radius:999px;
-  height:10px;
+  background: rgba(255,255,255,.22);
   overflow:hidden;
 }
-.progress-bar{
+.barRemain{
   height:100%;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
   width:0%;
-  transition:.5s;
-}
-.muted{
-  font-size:12px;
-  color:var(--muted);
-  margin:0 0 10px;
+  border-radius:999px;
+  background: linear-gradient(90deg, #118cff, #1b67ff);
+  transition:.35s;
 }
 
-.footer{
-  margin-top:18px;
-  padding:14px 10px;
-  text-align:center;
-  font-size:12px;
-  color:#6b7280;
-  border-top:1px solid #e6e8ec;
-}
-.footer b{
-  color:#0f172a;
-  font-weight:700;
+.mini{
+  color: rgba(238,246,255,.70);
+  font-size:10.5px;
+  margin-top:5px;
 }
 
-@media (max-width:360px){
-  .grid{ grid-template-columns:1fr; }
+@media(max-width:360px){
+  .wrap{max-width:390px;}
+  .infoRow{ grid-template-columns:92px 10px 1fr; }
 }
 </style>
 </head>
 
 <body>
 <div class="wrap">
-  <div class="container">
-    <h2>Cek Kuota XL & AXIS</h2>
-    <p class="sub">Masukkan nomor lalu klik <b>Cek Kuota</b>. Paket bisa dibuka dengan tanda <b>&gt;</b>.</p>
+  <div class="panel">
+    <div class="hTitle">CEK KUOTA<br>XL DAN AXIS</div>
 
+    <div class="label">Nomor XL / AXIS</div>
+    <input id="nomor" class="input" type="tel" inputmode="numeric"
+           placeholder="Ex: 0878xxx / 62878xxx" autocomplete="tel">
 
-    <div class="field">
-      <div class="icon">📱</div>
-      <input id="nomor" type="tel" inputmode="numeric" placeholder="Masukkan nomor 08xx" autocomplete="tel">
+    <button class="btnMain" id="btnCek" onclick="cekKuota()">
+      <span class="ico">🔊</span>
+      <span>Cek Kuota</span>
+    </button>
+
+    <div class="row2">
+      <button class="btnSmall" type="button" onclick="alert('Menu Area Akrab')">Area Akrab</button>
+      <button class="btnSmall" type="button" onclick="alert('Menu Area Bebas Puas')">Area Bebas Puas</button>
     </div>
 
-    <div class="note">Masukkan nomor dengan format <b>62/08</b>.</div>
+    <div class="resultWrap">
+      <div class="resultContent" id="resultBox">
+        <div class="infoCard">
+          <div style="font-weight:900;">🧾 RESULT :</div>
+          <div class="mini">Hasil muncul setelah klik <b>Cek Kuota</b>.</div>
+        </div>
+      </div>
+    </div>
 
-    <!-- tombol bawah tetap ada (opsional) -->
-    <button class="big" id="btnCek" onclick="cekKuota()">🚀 Cek Kuota</button>
-
-    <div class="result" id="resultBox"></div>
-
-    <div class="footer">© <b>CIRCELCUANMV STORE OFFICIAL</b></div>
   </div>
 </div>
 
@@ -312,7 +270,6 @@ function normalize(num){
   if(num.startsWith('0')) num = '62' + num.slice(1);
   return num;
 }
-
 function escapeHtml(s){
   return String(s ?? "")
     .replace(/&/g,"&amp;")
@@ -321,28 +278,129 @@ function escapeHtml(s){
     .replace(/"/g,"&quot;")
     .replace(/'/g,"&#039;");
 }
-
-function togglePkg(id){
+function openPkg(id){
   const el = document.getElementById(id);
   if(!el) return;
   el.classList.toggle("open");
+}
+function pickValue(obj, paths){
+  for(const p of paths){
+    let cur = obj;
+    const keys = p.split(".");
+    let ok = true;
+    for(const k of keys){
+      if(cur && Object.prototype.hasOwnProperty.call(cur, k)){
+        cur = cur[k];
+      }else{ ok = false; break; }
+    }
+    if(ok && cur != null && cur !== "") return cur;
+  }
+  return null;
+}
+
+/* fallback cari key volte */
+function findVolteFallback(obj, want){
+  const keys = Object.keys(obj || {});
+  const w = String(want || "").toLowerCase();
+
+  const hit = keys.find(k => {
+    const s = k.toLowerCase();
+    if(!s.includes("volte")) return false;
+    if(w === "perangkat"){
+      return s.includes("perangkat") || s.includes("device") || s.includes("hp") || s.includes("handset");
+    }
+    return s.includes(w);
+  });
+
+  if(!hit) return null;
+
+  const val = obj[hit];
+  if(val && typeof val === "object" && "value" in val) return val.value;
+  return val;
+}
+
+/* fallback cari key umur kartu */
+function findAgeFallback(obj){
+  const keys = Object.keys(obj || {});
+  const hit = keys.find(k=>{
+    const s = k.toLowerCase();
+    return s.includes("umur") || s.includes("age") || s.includes("masa_pakai") || s.includes("masa pakai");
+  });
+
+  if(!hit) return "";
+  const val = obj[hit];
+  if(val && typeof val === "object" && "value" in val) return val.value;
+  return val ?? "";
+}
+
+/* angka kuota (hapus unit, tetap bisa parse) */
+function toNumber(x){
+  if(x == null) return 0;
+  const s = String(x).replace(/\s/g,'').replace(/,/g,'.').replace(/[^\d.]/g,'');
+  const n = parseFloat(s);
+  return isNaN(n) ? 0 : n;
+}
+function remainPercent(remain, total){
+  if(total > 0) return Math.max(0, Math.min(100, (remain/total)*100));
+  if(remain > 0) return 100;
+  return 0;
+}
+
+/* ✅/❌ saja (tanpa "-"). default ❌ kalau tidak kebaca */
+function ynIconForce(val){
+  if(val == null) return "❌";
+  if(typeof val === "object" && "value" in val) val = val.value;
+
+  const raw = String(val).trim();
+  if(raw === "") return "❌";
+
+  const s = raw.toLowerCase();
+
+  // NEGATIF
+  if(
+    s.includes("tidak") || s.includes("non") ||
+    s.includes("not supported") || s.includes("unsupported") ||
+    s.includes("unavailable") || s.includes("disable") ||
+    s.includes("off") || s === "no" || s === "false" || s === "0" || s === "x"
+  ) return "❌";
+
+  // POSITIF
+  if(
+    s.includes("ya") || s.includes("yes") ||
+    s.includes("aktif") || s.includes("sudah") ||
+    s.includes("supported") || s.includes("available") ||
+    s.includes("enable") || s.includes("on") ||
+    s === "true" || s === "1" ||
+    raw.includes("✓") || raw.includes("✔") || raw.includes("✅")
+  ) return "✅";
+
+  return "❌";
+}
+
+/* tanggal: DD-MM-YYYY */
+function dateOnly(v){
+  if(!v) return "";
+  const s = String(v).trim();
+  const iso = s.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if(iso) return `${iso[3]}-${iso[2]}-${iso[1]}`;
+  const dmy = s.match(/(\d{2})[\/-](\d{2})[\/-](\d{4})/);
+  if(dmy) return `${dmy[1]}-${dmy[2]}-${dmy[3]}`;
+  return s;
 }
 
 async function cekKuota(){
   const input = document.getElementById("nomor");
   const box   = document.getElementById("resultBox");
   const btn   = document.getElementById("btnCek");
-  const btnTop= document.getElementById("btnCekTop");
 
   if(!input.value){
-    box.innerHTML = "<div class='card'>⚠️ Nomor wajib diisi</div>";
+    box.innerHTML = `<div class="infoCard">⚠️ Nomor wajib diisi</div>`;
     return;
   }
 
   const msisdn = normalize(input.value);
-  box.innerHTML = "<div class='card'>⏳ Memproses...</div>";
-  if(btn) btn.disabled = true;
-  if(btnTop) btnTop.disabled = true;
+  btn.disabled = true;
+  box.innerHTML = `<div class="infoCard">⏳ Memproses...</div>`;
 
   const url = `https://apigw.kmsp-store.com/sidompul/v4/cek_kuota?msisdn=${msisdn}&isJSON=true&_=${Date.now()}`;
 
@@ -358,101 +416,144 @@ async function cekKuota(){
     });
 
     let json;
-    try{
-      json = await res.json();
-    }catch(_){
-      box.innerHTML = "<div class='card'>❌ Response bukan JSON (kemungkinan diblok CORS / server error)</div>";
+    try{ json = await res.json(); }
+    catch(_){
+      box.innerHTML = `<div class="infoCard">❌ Response bukan JSON (kemungkinan diblok CORS / server error)</div>`;
       return;
     }
 
     if(!json?.status || !json?.data?.data_sp){
       const msg = escapeHtml(json?.message || "Gagal ambil data");
-      box.innerHTML = `<div class='card'>❌ ${msg}</div>`;
+      box.innerHTML = `<div class="infoCard">❌ ${msg}</div>`;
       return;
     }
 
     const d = json.data.data_sp;
-    const op = d?.prefix?.value ?? "-";
+
+    const ms = json.data?.msisdn ?? msisdn;
+    const tipeKartu = d?.prefix?.value ?? "";
+    const jaringan  = d?.status_4g?.value ?? "";
+    const verifId   = d?.dukcapil?.value ?? "";
+
+    // ✅ FIX UMUR KARTU (multi key + fallback)
+    const umurKartu =
+      pickValue(d, [
+        "card_age.value",
+        "umur_kartu.value",
+        "age_card.value",
+        "masa_pakai.value",
+        "card_age",
+        "umur_kartu",
+        "age_card",
+        "masa_pakai"
+      ]) ?? findAgeFallback(d);
+
+    const masaAktif = dateOnly(d?.active_period?.value ?? "");
+    const masaTengg = dateOnly(d?.grace_period?.value ?? d?.masa_tenggang?.value ?? "");
+
+    // ✅ FIX VOLTE (multi key + fallback)
+    const volteAreaVal =
+      pickValue(d, [
+        "volte_area.value","volteArea.value","volte_area","volteArea",
+        "volte_area_status.value","volteAreaStatus.value","volte_area_status","volteAreaStatus"
+      ]) ?? findVolteFallback(d, "area");
+
+    const volteSimVal =
+      pickValue(d, [
+        "volte_simcard.value","volteSimcard.value","volte_sim.value","volteSim.value",
+        "volte_simcard","volteSimcard","volte_sim","volteSim",
+        "volte_sim_status.value","volteSimStatus.value","volte_sim_status","volteSimStatus"
+      ]) ?? findVolteFallback(d, "simcard");
+
+    const volteDevVal =
+      pickValue(d, [
+        "volte_device.value","voltePerangkat.value","volteDevice.value",
+        "volte_device","voltePerangkat","volteDevice",
+        "volte_device_status.value","volteDeviceStatus.value","volte_device_status","volteDeviceStatus"
+      ]) ?? findVolteFallback(d, "perangkat");
 
     let html = `
-      <div class="card">
-        <div class="card-head">
-          <h4>📌 Info Nomor</h4>
-          <span class="badge">${escapeHtml(op)}</span>
-        </div>
-        <div class="grid">
-          <div class="kv"><div class="k">MSISDN</div><div class="v">${escapeHtml(json.data?.msisdn ?? msisdn)}</div></div>
-          <div class="kv"><div class="k">Status 4G</div><div class="v">${escapeHtml(d?.status_4g?.value ?? "-")}</div></div>
-          <div class="kv"><div class="k">Dukcapil</div><div class="v">${escapeHtml(d?.dukcapil?.value ?? "-")}</div></div>
-          <div class="kv"><div class="k">Masa Aktif</div><div class="v">${escapeHtml(d?.active_period?.value ?? "-")}</div></div>
+      <div class="infoCard">
+        <div class="infoRow"><div class="k">MSISDN</div><div class="c">:</div><div class="v">${escapeHtml(ms)}</div></div>
+        <div class="infoRow"><div class="k">Tipe Kartu</div><div class="c">:</div><div class="v">${escapeHtml(tipeKartu)}</div></div>
+        <div class="infoRow"><div class="k">Jaringan</div><div class="c">:</div><div class="v">${escapeHtml(jaringan)}</div></div>
+        <div class="infoRow"><div class="k">Verif ID</div><div class="c">:</div><div class="v">${escapeHtml(verifId)}</div></div>
+        <div class="infoRow"><div class="k">Umur Kartu</div><div class="c">:</div><div class="v">${escapeHtml(umurKartu)}</div></div>
+
+        <div class="infoRow"><div class="k">Masa Aktif</div><div class="c">:</div><div class="v">${escapeHtml(masaAktif)}</div></div>
+        <div class="infoRow"><div class="k">Masa Tenggang</div><div class="c">:</div><div class="v">${escapeHtml(masaTengg)}</div></div>
+
+        <div class="infoRow"><div class="k">Volte Area</div><div class="c">:</div><div class="v">${ynIconForce(volteAreaVal)}</div></div>
+        <div class="infoRow"><div class="k">Volte Simcard</div><div class="c">:</div><div class="v">${ynIconForce(volteSimVal)}</div></div>
+        <div class="infoRow"><div class="k">Volte Perangkat</div><div class="c">:</div><div class="v">${ynIconForce(volteDevVal)}</div></div>
+
+        <div class="hr"></div>
+        <div class="volteNote">
+          <div>📶</div>
+          <div><b>VoLTE</b> adalah panggilan telepon yang <b>tetap bisa internetan</b>.</div>
         </div>
       </div>
     `;
 
     const groups = d?.quotas?.value || [];
-    if(!Array.isArray(groups) || groups.length === 0){
-      html += `<div class="card">Tidak ada data paket ditemukan.</div>`;
-      box.innerHTML = html;
-      return;
+    const flatPkgs = [];
+    if(Array.isArray(groups)){
+      groups.forEach(g => (g||[]).forEach(p => flatPkgs.push(p)));
     }
 
-    let idx = 0;
-    groups.forEach(group=>{
-      (group || []).forEach(pkg=>{
-        const id = "pkg_" + (idx++);
+    if(flatPkgs.length){
+      html += `<div class="packList">`;
+
+      let idx = 0;
+      flatPkgs.forEach(pkg=>{
+        const id = `pkg_${idx++}`;
         const pname = pkg?.packages?.name ?? "Paket";
-        const exp = pkg?.packages?.expDate ?? "-";
+        const exp = dateOnly(pkg?.packages?.expDate ?? "");
 
         html += `
-          <div class="card pkg" id="${id}">
-            <div class="pkg-toggle" onclick="togglePkg('${id}')">
-              <div>
-                <div class="pkg-name">${escapeHtml(pname)}</div>
-                <div class="pkg-exp">Aktif sampai ${escapeHtml(exp)}</div>
-              </div>
-              <div class="chev">&gt;</div>
+          <div class="pkg" id="${id}">
+            <div class="pkgHead" onclick="openPkg('${id}')">
+              <div class="pkgTitle">${escapeHtml(exp)} | ${escapeHtml(pname)}</div>
             </div>
-
-            <div class="pkg-content">
+            <div class="pkgBody">
         `;
 
         const benefits = pkg?.benefits || [];
         if(!benefits.length){
-          html += `<div class="muted">Tidak ada detail kuota.</div>`;
+          html += `<div class="benefit" style="color:rgba(238,246,255,.75);font-size:11px;">Tidak ada detail kuota.</div>`;
         }else{
           benefits.forEach(b=>{
-            const total  = parseFloat(b?.quota) || 0;
-            const remain = parseFloat(b?.remaining) || 0;
-            const percent = total ? Math.max(0, Math.min(100,(remain/total)*100)) : 0;
+            const totalN  = toNumber(b?.quota);
+            const remainN = toNumber(b?.remaining);
+            const p = remainPercent(remainN, totalN);
 
             html += `
-              <div class="line">
-                <span>${escapeHtml(b?.bname ?? "Kuota")}</span>
-                <span>${escapeHtml(b?.remaining ?? "0")} / ${escapeHtml(b?.quota ?? "0")}</span>
+              <div class="benefit">
+                <div class="bLine">
+                  <div class="bName">${escapeHtml(b?.bname ?? "Kuota")}</div>
+                  <div class="bVal">${escapeHtml(b?.remaining ?? "0")} / ${escapeHtml(b?.quota ?? "0")}</div>
+                </div>
+                <div class="bar"><div class="barRemain" style="width:${p}%"></div></div>
               </div>
-              <div class="progress">
-                <div class="progress-bar" style="width:${percent}%"></div>
-              </div>
-              <div class="muted">Sisa ${percent.toFixed(0)}%</div>
             `;
           });
         }
 
-        html += `
-            </div>
-          </div>
-        `;
+        html += `</div></div>`;
       });
-    });
+
+      html += `</div>`;
+    }else{
+      html += `<div class="infoCard" style="margin-top:9px;">Tidak ada data paket ditemukan.</div>`;
+    }
 
     box.innerHTML = html;
 
   }catch(e){
     console.error(e);
-    box.innerHTML = "<div class='card'>⚠️ Koneksi gagal / diblokir (cek internet atau CORS)</div>";
+    box.innerHTML = `<div class="infoCard">⚠️ Koneksi gagal / diblokir (cek internet atau CORS)</div>`;
   }finally{
-    if(btn) btn.disabled = false;
-    if(btnTop) btnTop.disabled = false;
+    btn.disabled = false;
   }
 }
 </script>
