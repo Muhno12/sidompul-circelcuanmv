@@ -66,14 +66,14 @@ h2{
   color:var(--muted);
 }
 
-/* === tombol menu 3 kolom === */
+/* === MENU (1 tombol) === */
 .menu3{
   display:grid;
-  grid-template-columns:repeat(3, 1fr);
+  grid-template-columns:1fr;
   gap:10px;
   margin:6px 0 16px;
 }
-.menu3 a, .menu3 button{
+.menu3 button{
   border:1px solid var(--border);
   background:#fff;
   border-radius:14px;
@@ -90,7 +90,7 @@ h2{
   color:var(--text);
   font-family:'Poppins',sans-serif;
 }
-.menu3 a:hover, .menu3 button:hover{
+.menu3 button:hover{
   transform:translateY(-1px);
   border-color:#d6dae3;
 }
@@ -279,7 +279,6 @@ button:disabled{ opacity:.6; cursor:not-allowed; }
 
 @media (max-width:360px){
   .grid{ grid-template-columns:1fr; }
-  .menu3{ grid-template-columns:1fr; } /* biar rapi di HP kecil */
 }
 </style>
 </head>
@@ -288,28 +287,8 @@ button:disabled{ opacity:.6; cursor:not-allowed; }
 <div class="wrap">
   <div class="container">
     <h2>Cek Kuota XL & AXIS</h2>
-    <p class="sub">Pilih menu cek, atau masukkan nomor lalu klik <b>Cek Kuota</b>. Paket bisa dibuka dengan tanda <b>&gt;</b>.</p>
+    <p class="sub">Masukkan nomor lalu klik <b>Cek Kuota</b>. Paket bisa dibuka dengan tanda <b>&gt;</b>.</p>
 
-    <!-- === MENU 3 TOMBOL CEK (BARU) === -->
-    <div class="menu3">
-      <button class="primary" id="btnCekTop" onclick="cekKuota()" type="button">
-        <div class="menu-ico">🚀</div>
-        <div class="menu-txt">Cek Kuota</div>
-        <div class="menu-sub">XL / AXIS</div>
-      </button>
-
-      <a href="https://cek.circelcuanmv.web.id/" target="_blank" rel="noopener">
-        <div class="menu-ico">🛒</div>
-        <div class="menu-txt">Cek Paket</div>
-        <div class="menu-sub">Circle</div>
-      </a>
-
-      <a href="https://cekarea.circelcuanmv.web.id/" target="_blank" rel="noopener">
-        <div class="menu-ico">📍</div>
-        <div class="menu-txt">Cek Area</div>
-        <div class="menu-sub">Akrab</div>
-      </a>
-    </div>
 
     <div class="field">
       <div class="icon">📱</div>
@@ -318,7 +297,7 @@ button:disabled{ opacity:.6; cursor:not-allowed; }
 
     <div class="note">Masukkan nomor dengan format <b>62/08</b>.</div>
 
-    <!-- tombol bawah tetap ada (opsional). kalau mau dihapus bilang ya -->
+    <!-- tombol bawah tetap ada (opsional) -->
     <button class="big" id="btnCek" onclick="cekKuota()">🚀 Cek Kuota</button>
 
     <div class="result" id="resultBox"></div>
@@ -478,4 +457,4 @@ async function cekKuota(){
 }
 </script>
 </body>
-  </html>
+</html>
