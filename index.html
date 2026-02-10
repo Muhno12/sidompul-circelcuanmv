@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cek Kuota XL AXIS</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --card:#ffffff;
+  --border:#e6e8ec;
+  --text:#0f172a;
+  --muted:#6b7280;
+  --accent:#1e88e5;
+  --accent2:#6fb7ff;
+  --shadow:0 10px 28px rgba(0,0,0,.08);
+  --soft:#f7f9fc;
+}
+
+*{box-sizing:border-box}
+
+body{
+  font-family:'Poppins',sans-serif;
+  margin:0;
+  min-height:100vh;
+  padding:24px 16px;
+  color:var(--text);
+
+  background:
+    radial-gradient(1200px 700px at 20% 10%, rgba(30,136,229,.15), transparent 60%),
+    radial-gradient(900px 600px at 85% 30%, rgba(111,183,255,.15), transparent 60%),
+    linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.70)),
+    url("https://buyer.duniadigitalsb.my.id/uploads/logo/circelcuanmvlogo.png");
+
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:auto, auto, cover, contain;
+  background-attachment:fixed;
+}
+
+.wrap{ max-width:460px; margin:auto; }
+
+.container{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:22px;
+  box-shadow:var(--shadow);
+}
+
+h2{
+  text-align:center;
+  margin:0 0 6px;
+  font-size:22px;
+  font-weight:700;
+}
+
+.sub{
+  text-align:center;
+  margin:0 0 18px;
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* === tombol menu 3 kolom === */
+.menu3{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:10px;
+  margin:6px 0 16px;
+}
+.menu3 a, .menu3 button{
+  border:1px solid var(--border);
+  background:#fff;
+  border-radius:14px;
+  padding:12px 10px;
+  text-decoration:none;
+  cursor:pointer;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  box-shadow:0 8px 18px rgba(15,23,42,.06);
+  transition:.15s ease;
+  color:var(--text);
+  font-family:'Poppins',sans-serif;
+}
+.menu3 a:hover, .menu3 button:hover{
+  transform:translateY(-1px);
+  border-color:#d6dae3;
+}
+.menu-ico{ font-size:18px; }
+.menu-txt{ font-size:12px; font-weight:700; line-height:1.1; text-align:center; }
+.menu-sub{ font-size:11px; color:var(--muted); line-height:1.1; text-align:center; }
+
+/* tombol kuota dibuat aksen */
+.menu3 .primary{
+  border:none;
+  color:#fff;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  box-shadow:0 10px 22px rgba(30,136,229,.22);
+}
+.menu3 .primary:hover{ filter:brightness(1.02); }
+
+.field{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:#fff;
+}
+
+.icon{
+  width:36px;
+  height:36px;
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  background:#eef4ff;
+  color:var(--accent);
+  font-size:18px;
+}
+
+input{
+  width:100%;
+  border:none;
+  outline:none;
+  background:transparent;
+  color:var(--text);
+  font-size:15px;
+}
+input::placeholder{ color:#9ca3af; }
+
+.note{
+  font-size:12px;
+  margin:10px 2px 16px;
+  color:var(--muted);
+}
+
+button.big{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:14px;
+  font-weight:700;
+  font-size:16px;
+  cursor:pointer;
+  color:#fff;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  box-shadow:0 8px 20px rgba(30,136,229,.25);
+}
+button:disabled{ opacity:.6; cursor:not-allowed; }
+
+.result{ margin-top:18px; }
+
+.card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:14px;
+  margin-bottom:12px;
+}
+
+.card-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:10px;
+}
+.card-head h4{
+  margin:0;
+  font-size:14px;
+  font-weight:700;
+}
+.badge{
+  font-size:11px;
+  padding:6px 10px;
+  border-radius:999px;
+  background:#f3f4f6;
+  color:#374151;
+  font-weight:600;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.kv{
+  background:var(--soft);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:10px;
+}
+.k{ font-size:11px; color:var(--muted); margin-bottom:3px; }
+.v{ font-size:13px; color:var(--text); word-break:break-word; }
+
+.pkg-toggle{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:pointer;
+  padding:12px;
+  border-radius:14px;
+  background:#f9fafb;
+  border:1px solid var(--border);
+}
+.pkg-name{ font-weight:700; }
+.pkg-exp{ font-size:12px; color:var(--muted); }
+.chev{
+  width:32px;
+  height:32px;
+  border-radius:10px;
+  display:grid;
+  place-items:center;
+  background:#eef4ff;
+  color:var(--accent);
+  font-weight:800;
+  transition:.2s;
+}
+.pkg.open .chev{ transform:rotate(90deg); }
+
+.pkg-content{
+  max-height:0;
+  opacity:0;
+  overflow:hidden;
+  transition:.25s ease;
+}
+.pkg.open .pkg-content{
+  max-height:1400px;
+  opacity:1;
+  margin-top:10px;
+}
+
+.line{
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  margin:8px 0 6px;
+}
+.progress{
+  background:#e5e7eb;
+  border-radius:999px;
+  height:10px;
+  overflow:hidden;
+}
+.progress-bar{
+  height:100%;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  width:0%;
+  transition:.5s;
+}
+.muted{
+  font-size:12px;
+  color:var(--muted);
+  margin:0 0 10px;
+}
+
+.footer{
+  margin-top:18px;
+  padding:14px 10px;
+  text-align:center;
+  font-size:12px;
+  color:#6b7280;
+  border-top:1px solid #e6e8ec;
+}
+.footer b{
+  color:#0f172a;
+  font-weight:700;
+}
+
+@media (max-width:360px){
+  .grid{ grid-template-columns:1fr; }
+  .menu3{ grid-template-columns:1fr; } /* biar rapi di HP kecil */
+}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+  <div class="container">
+    <h2>Cek Kuota XL & AXIS</h2>
+    <p class="sub">Pilih menu cek, atau masukkan nomor lalu klik <b>Cek Kuota</b>. Paket bisa dibuka dengan tanda <b>&gt;</b>.</p>
+
+    <!-- === MENU 3 TOMBOL CEK (BARU) === -->
+    <div class="menu3">
+      <button class="primary" id="btnCekTop" onclick="cekKuota()" type="button">
+        <div class="menu-ico">🚀</div>
+        <div class="menu-txt">Cek Kuota</div>
+        <div class="menu-sub">XL / AXIS</div>
+      </button>
+
+      <a href="https://circelcuanmv.olshopku.com/digital/361493" target="_blank" rel="noopener">
+        <div class="menu-ico">🛒</div>
+        <div class="menu-txt">Cek Paket</div>
+        <div class="menu-sub">Circle</div>
+      </a>
+
+      <a href="https://cekarea.circelcuanmv.web.id/" target="_blank" rel="noopener">
+        <div class="menu-ico">📍</div>
+        <div class="menu-txt">Cek Area</div>
+        <div class="menu-sub">Akrab</div>
+      </a>
+    </div>
+
+    <div class="field">
+      <div class="icon">📱</div>
+      <input id="nomor" type="tel" inputmode="numeric" placeholder="Masukkan nomor 08xx" autocomplete="tel">
+    </div>
+
+    <div class="note">Masukkan nomor dengan format <b>62/08</b>.</div>
+
+    <!-- tombol bawah tetap ada (opsional). kalau mau dihapus bilang ya -->
+    <button class="big" id="btnCek" onclick="cekKuota()">🚀 Cek Kuota</button>
+
+    <div class="result" id="resultBox"></div>
+
+    <div class="footer">© <b>CIRCELCUANMV STORE OFFICIAL</b></div>
+  </div>
+</div>
+
+<script>
+function normalize(num){
+  num = (num || '').replace(/\D/g,'');
+  if(num.startsWith('0')) num = '62' + num.slice(1);
+  return num;
+}
+
+function escapeHtml(s){
+  return String(s ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+}
+
+function togglePkg(id){
+  const el = document.getElementById(id);
+  if(!el) return;
+  el.classList.toggle("open");
+}
+
+async function cekKuota(){
+  const input = document.getElementById("nomor");
+  const box   = document.getElementById("resultBox");
+  const btn   = document.getElementById("btnCek");
+  const btnTop= document.getElementById("btnCekTop");
+
+  if(!input.value){
+    box.innerHTML = "<div class='card'>⚠️ Nomor wajib diisi</div>";
+    return;
+  }
+
+  const msisdn = normalize(input.value);
+  box.innerHTML = "<div class='card'>⏳ Memproses...</div>";
+  if(btn) btn.disabled = true;
+  if(btnTop) btnTop.disabled = true;
+
+  const url = `https://apigw.kmsp-store.com/sidompul/v4/cek_kuota?msisdn=${msisdn}&isJSON=true&_=${Date.now()}`;
+
+  try{
+    const res = await fetch(url,{
+      method:'GET',
+      headers:{
+        "Accept":"application/json",
+        "Authorization":"Basic c2lkb21wdWxhcGk6YXBpZ3drbXNw",
+        "x-api-key":"60ef29aa-a648-4668-90ae-20951ef90c55",
+        "x-app-version":"4.0.0"
+      }
+    });
+
+    let json;
+    try{
+      json = await res.json();
+    }catch(_){
+      box.innerHTML = "<div class='card'>❌ Response bukan JSON (kemungkinan diblok CORS / server error)</div>";
+      return;
+    }
+
+    if(!json?.status || !json?.data?.data_sp){
+      const msg = escapeHtml(json?.message || "Gagal ambil data");
+      box.innerHTML = `<div class='card'>❌ ${msg}</div>`;
+      return;
+    }
+
+    const d = json.data.data_sp;
+    const op = d?.prefix?.value ?? "-";
+
+    let html = `
+      <div class="card">
+        <div class="card-head">
+          <h4>📌 Info Nomor</h4>
+          <span class="badge">${escapeHtml(op)}</span>
+        </div>
+        <div class="grid">
+          <div class="kv"><div class="k">MSISDN</div><div class="v">${escapeHtml(json.data?.msisdn ?? msisdn)}</div></div>
+          <div class="kv"><div class="k">Status 4G</div><div class="v">${escapeHtml(d?.status_4g?.value ?? "-")}</div></div>
+          <div class="kv"><div class="k">Dukcapil</div><div class="v">${escapeHtml(d?.dukcapil?.value ?? "-")}</div></div>
+          <div class="kv"><div class="k">Masa Aktif</div><div class="v">${escapeHtml(d?.active_period?.value ?? "-")}</div></div>
+        </div>
+      </div>
+    `;
+
+    const groups = d?.quotas?.value || [];
+    if(!Array.isArray(groups) || groups.length === 0){
+      html += `<div class="card">Tidak ada data paket ditemukan.</div>`;
+      box.innerHTML = html;
+      return;
+    }
+
+    let idx = 0;
+    groups.forEach(group=>{
+      (group || []).forEach(pkg=>{
+        const id = "pkg_" + (idx++);
+        const pname = pkg?.packages?.name ?? "Paket";
+        const exp = pkg?.packages?.expDate ?? "-";
+
+        html += `
+          <div class="card pkg" id="${id}">
+            <div class="pkg-toggle" onclick="togglePkg('${id}')">
+              <div>
+                <div class="pkg-name">${escapeHtml(pname)}</div>
+                <div class="pkg-exp">Aktif sampai ${escapeHtml(exp)}</div>
+              </div>
+              <div class="chev">&gt;</div>
+            </div>
+
+            <div class="pkg-content">
+        `;
+
+        const benefits = pkg?.benefits || [];
+        if(!benefits.length){
+          html += `<div class="muted">Tidak ada detail kuota.</div>`;
+        }else{
+          benefits.forEach(b=>{
+            const total  = parseFloat(b?.quota) || 0;
+            const remain = parseFloat(b?.remaining) || 0;
+            const percent = total ? Math.max(0, Math.min(100,(remain/total)*100)) : 0;
+
+            html += `
+              <div class="line">
+                <span>${escapeHtml(b?.bname ?? "Kuota")}</span>
+                <span>${escapeHtml(b?.remaining ?? "0")} / ${escapeHtml(b?.quota ?? "0")}</span>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" style="width:${percent}%"></div>
+              </div>
+              <div class="muted">Sisa ${percent.toFixed(0)}%</div>
+            `;
+          });
+        }
+
+        html += `
+            </div>
+          </div>
+        `;
+      });
+    });
+
+    box.innerHTML = html;
+
+  }catch(e){
+    console.error(e);
+    box.innerHTML = "<div class='card'>⚠️ Koneksi gagal / diblokir (cek internet atau CORS)</div>";
+  }finally{
+    if(btn) btn.disabled = false;
+    if(btnTop) btnTop.disabled = false;
+  }
+}
+</script>
+</body>
+  </html>
