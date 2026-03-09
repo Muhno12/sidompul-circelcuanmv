@@ -7,23 +7,30 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg1:#0c69c9;
-  --bg2:#083f8b;
-  --bg3:#021f4f;
+  --bg1:#0d74d6;
+  --bg2:#0b4fa8;
+  --bg3:#06275f;
 
-  --stroke:rgba(255,255,255,.10);
+  --panel1:rgba(47,111,160,.94);
+  --panel2:rgba(27,76,120,.94);
+
+  --stroke:rgba(255,255,255,.12);
+  --stroke-soft:rgba(255,255,255,.08);
 
   --text:#eef6ff;
-  --muted:rgba(238,246,255,.75);
+  --muted:rgba(238,246,255,.74);
 
   --orange:#ff9f0a;
-  --blue:#0a90df;
+  --orange2:#ffb648;
+  --blue:#1495e8;
+  --blue2:#0e7fd8;
 
-  --shadow: 0 12px 30px rgba(0,0,0,.28);
+  --shadow:0 18px 45px rgba(0,0,0,.28);
+  --shadow-soft:0 10px 24px rgba(0,0,0,.18);
 }
 
 *{box-sizing:border-box}
@@ -33,246 +40,289 @@ body{
   min-height:100vh;
   font-family:'Poppins',sans-serif;
   color:var(--text);
-  padding:12px 10px 18px;
+  padding:20px 14px 26px;
   background:
-    radial-gradient(700px 480px at 35% 10%, rgba(120,205,255,.24), transparent 62%),
+    radial-gradient(900px 600px at 30% 8%, rgba(145,220,255,.24), transparent 60%),
     linear-gradient(180deg, var(--bg1), var(--bg2), var(--bg3));
 }
 
 .wrap{
-  max-width:360px;
+  max-width:430px;
   margin:0 auto;
 }
 
 .panel{
-  background: linear-gradient(180deg, rgba(47,111,160,.92), rgba(31,85,127,.92));
+  background:linear-gradient(180deg, var(--panel1), var(--panel2));
   border:1px solid var(--stroke);
-  border-radius: 18px;
-  box-shadow: var(--shadow);
-  padding:10px 8px 10px;
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  padding:18px 14px 14px;
+  backdrop-filter: blur(8px);
 }
 
 .hTitle{
   text-align:center;
-  font-weight:900;
+  font-weight:800;
   text-transform:uppercase;
-  letter-spacing:.5px;
-  font-size:18px;
-  line-height:1.08;
-  margin:2px 0 8px;
+  letter-spacing:.4px;
+  font-size:24px;
+  line-height:1.1;
+  margin:2px 0 14px;
 }
 
 .label{
-  font-weight:800;
-  font-size:13px;
-  margin:4px 0 6px;
+  font-weight:700;
+  font-size:14px;
+  margin:0 0 7px;
 }
 
 .input{
   width:100%;
-  padding:10px 9px;
-  border-radius:10px;
+  padding:13px 12px;
+  border-radius:14px;
   border:1px solid rgba(255,255,255,.16);
   outline:none;
-  background: rgba(93,127,156,.46);
-  color: rgba(238,246,255,.95);
-  font-size:12px;
+  background:rgba(255,255,255,.10);
+  color:rgba(238,246,255,.97);
+  font-size:13px;
+  transition:.2s ease;
 }
 .input::placeholder{
-  color: rgba(234,244,255,.55);
+  color:rgba(234,244,255,.52);
+}
+.input:focus{
+  border-color:rgba(255,255,255,.28);
+  background:rgba(255,255,255,.13);
+  box-shadow:0 0 0 3px rgba(255,255,255,.05);
 }
 
 .btnMain{
-  margin-top:8px;
+  margin-top:12px;
   width:100%;
   border:none;
   cursor:pointer;
-  padding:10px 10px;
-  border-radius:10px;
-  font-weight:900;
-  font-size:13px;
+  padding:13px 14px;
+  border-radius:14px;
+  font-weight:800;
+  font-size:14px;
   color:#fff;
-  background: var(--orange);
-  box-shadow: 0 8px 14px rgba(255,159,10,.18);
+  background:linear-gradient(180deg, var(--orange2), var(--orange));
+  box-shadow:0 12px 22px rgba(255,159,10,.22);
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:7px;
+  gap:8px;
+  transition:transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+}
+.btnMain:hover{
+  transform:translateY(-1px);
+}
+.btnMain:active{
+  transform:translateY(0);
 }
 .btnMain:disabled{
-  opacity:.65;
+  opacity:.7;
   cursor:not-allowed;
 }
 .btnMain .ico{
-  font-size:14px;
-  transform: translateY(1px);
+  font-size:15px;
+  transform:translateY(1px);
 }
 
 .row2{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:7px;
-  margin-top:7px;
+  gap:10px;
+  margin-top:10px;
 }
 .btnSmall{
   border:none;
   cursor:pointer;
-  padding:8px 8px;
-  border-radius:10px;
-  font-weight:900;
-  font-size:12px;
-  color:#eaf5ff;
-  background: var(--blue);
-  box-shadow: 0 7px 12px rgba(10,144,223,.18);
+  padding:11px 10px;
+  border-radius:14px;
+  font-weight:700;
+  font-size:13px;
+  color:#eef6ff;
+  background:linear-gradient(180deg, var(--blue), var(--blue2));
+  box-shadow:0 10px 18px rgba(10,144,223,.18);
   text-decoration:none;
   display:flex;
   align-items:center;
   justify-content:center;
+  text-align:center;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.btnSmall:hover{
+  transform:translateY(-1px);
 }
 
 .resultWrap{
-  margin-top:8px;
-  border-radius:10px;
-  background: rgba(0,0,0,.10);
-  border:1px solid var(--stroke);
+  margin-top:14px;
+  border-radius:16px;
+  background:rgba(0,0,0,.10);
+  border:1px solid var(--stroke-soft);
   overflow:hidden;
 }
 .resultContent{
-  padding:7px;
+  padding:10px;
 }
 
 .infoCard{
-  border-radius:10px;
-  padding:8px;
-  background: linear-gradient(180deg, rgba(13,36,58,.68), rgba(10,28,46,.56));
-  border:1px solid var(--stroke);
+  border-radius:16px;
+  padding:12px;
+  background:linear-gradient(180deg, rgba(10,28,46,.54), rgba(7,20,35,.48));
+  border:1px solid var(--stroke-soft);
+  box-shadow:var(--shadow-soft);
+}
+
+.resultTitle{
+  font-weight:800;
+  font-size:13px;
+  margin-bottom:6px;
 }
 
 .infoRow{
   display:grid;
-  grid-template-columns:88px 8px 1fr;
-  gap:6px;
-  padding:1px 0;
-  font-size:11px;
+  grid-template-columns:110px 10px 1fr;
+  gap:7px;
+  padding:2px 0;
+  font-size:12px;
 }
 .infoRow .k{
-  font-weight:700;
-  color: rgba(238,246,255,.95);
+  font-weight:600;
+  color:rgba(238,246,255,.92);
 }
 .infoRow .c{
   text-align:center;
-  color: rgba(238,246,255,.70);
+  color:rgba(238,246,255,.62);
 }
 .infoRow .v{
   font-weight:700;
-  color: rgba(238,246,255,.98);
+  color:rgba(238,246,255,.99);
   word-break:break-word;
 }
 
 .hr{
   height:1px;
-  background: rgba(255,255,255,.12);
-  margin:7px 0;
+  background:rgba(255,255,255,.10);
+  margin:10px 0 9px;
 }
 
 .volteNote{
   display:flex;
-  gap:6px;
+  gap:7px;
   align-items:flex-start;
-  font-size:10.5px;
-  color: rgba(238,246,255,.92);
+  font-size:11px;
+  line-height:1.45;
+  color:rgba(238,246,255,.88);
 }
 .volteNote b{
-  color:#38d06a;
+  color:#47dd78;
 }
 
 .packList{
-  margin-top:8px;
+  margin-top:10px;
   display:flex;
   flex-direction:column;
-  gap:7px;
+  gap:10px;
 }
 
 .pkg{
-  border-radius:10px;
+  border-radius:16px;
   overflow:hidden;
-  border:1px solid rgba(255,255,255,.12);
-  background: rgba(0,0,0,.18);
-  box-shadow: 0 7px 14px rgba(0,0,0,.14);
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(0,0,0,.16);
+  box-shadow:var(--shadow-soft);
 }
 
 .pkgHead{
-  padding:7px 8px;
+  padding:10px 12px;
   cursor:pointer;
   user-select:none;
-  background: rgba(0,0,0,.16);
-  border-bottom:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.04);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  transition:background .15s ease;
+}
+.pkgHead:hover{
+  background:rgba(255,255,255,.06);
 }
 
 .pkgTitle{
-  font-weight:900;
-  font-size:12px;
-  color: rgba(238,246,255,.96);
-  line-height:1.25;
+  font-weight:800;
+  font-size:13px;
+  color:rgba(238,246,255,.97);
+  line-height:1.35;
 }
 
 .pkgBody{
   max-height:0;
   opacity:0;
   overflow:hidden;
-  transition:.20s ease;
-  background: rgba(0,0,0,.10);
+  transition:.24s ease;
+  background:rgba(0,0,0,.08);
 }
 .pkg.open .pkgBody{
-  max-height:2200px;
+  max-height:2400px;
   opacity:1;
 }
 
 .benefit{
-  padding:8px;
+  padding:11px 12px;
+  border-top:1px solid rgba(255,255,255,.05);
+}
+.benefit:first-child{
+  border-top:none;
 }
 
 .bLine{
   display:flex;
   justify-content:space-between;
-  gap:7px;
+  gap:8px;
   align-items:flex-end;
-  font-size:11px;
-  color: rgba(238,246,255,.92);
-  margin-bottom:6px;
+  font-size:12px;
+  color:rgba(238,246,255,.94);
+  margin-bottom:7px;
 }
 .bName{
-  font-weight:800;
+  font-weight:700;
 }
 .bVal{
-  font-weight:900;
+  font-weight:800;
   text-align:right;
 }
 
 .bar{
-  height:6px;
+  height:8px;
   border-radius:999px;
-  background: rgba(255,255,255,.22);
+  background:rgba(255,255,255,.18);
   overflow:hidden;
 }
 .barRemain{
   height:100%;
   width:0%;
   border-radius:999px;
-  background: linear-gradient(90deg, #118cff, #1b67ff);
-  transition:.35s;
+  background:linear-gradient(90deg, #30b0ff, #1d72ff);
+  transition:.35s ease;
 }
 
 .mini{
-  color: rgba(238,246,255,.70);
-  font-size:10px;
-  margin-top:4px;
+  color:var(--muted);
+  font-size:11px;
+  margin-top:5px;
+  line-height:1.45;
 }
 
-@media(max-width:360px){
-  .wrap{max-width:340px;}
-  .infoRow{ grid-template-columns:82px 8px 1fr; }
-  .hTitle{ font-size:17px; }
+@media (max-width:420px){
+  .wrap{max-width:100%}
+  .panel{padding:16px 12px 12px}
+  .hTitle{font-size:22px}
+  .infoRow{grid-template-columns:100px 10px 1fr}
+}
+
+@media (max-width:360px){
+  .hTitle{font-size:20px}
+  .infoRow{grid-template-columns:90px 8px 1fr; font-size:11px}
+  .row2{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -280,7 +330,7 @@ body{
 <body>
 <div class="wrap">
   <div class="panel">
-    <div class="hTitle">CEK KUOTA<br>XL DAN AXIS</div>
+    <div class="hTitle">Cek Kuota<br>XL dan Axis</div>
 
     <div class="label">Nomor XL / AXIS</div>
     <input id="nomor" class="input" type="tel" inputmode="numeric"
@@ -291,15 +341,15 @@ body{
       <span>Cek Kuota</span>
     </button>
 
-<div class="row2">
-  <a class="btnSmall" href="https://circelcuanmv.my.id/digital/328721" target="_blank" rel="noopener noreferrer">Area Akrab</a>
-  <a class="btnSmall" href="https://circelcuanmv.my.id/digital/383659" target="_blank" rel="noopener noreferrer">Area Bebas Puas</a>
-</div>
+    <div class="row2">
+      <a class="btnSmall" href="https://circelcuanmv.my.id/digital/328721" target="_blank" rel="noopener noreferrer">Area Akrab</a>
+      <a class="btnSmall" href="https://circelcuanmv.my.id/digital/383659" target="_blank" rel="noopener noreferrer">Area Bebas Puas</a>
+    </div>
 
     <div class="resultWrap">
       <div class="resultContent" id="resultBox">
         <div class="infoCard">
-          <div style="font-weight:900; font-size:12px;">🧾 RESULT :</div>
+          <div class="resultTitle">🧾 RESULT</div>
           <div class="mini">Hasil muncul setelah klik <b>Cek Kuota</b>.</div>
         </div>
       </div>
@@ -341,7 +391,6 @@ function pickValue(obj, paths){
   }
   return null;
 }
-
 function findVolteFallback(obj, want){
   const keys = Object.keys(obj || {});
   const w = String(want || "").toLowerCase();
@@ -361,7 +410,6 @@ function findVolteFallback(obj, want){
   if(val && typeof val === "object" && "value" in val) return val.value;
   return val;
 }
-
 function findAgeFallback(obj){
   const keys = Object.keys(obj || {});
   const hit = keys.find(k=>{
@@ -374,7 +422,6 @@ function findAgeFallback(obj){
   if(val && typeof val === "object" && "value" in val) return val.value;
   return val ?? "";
 }
-
 function toNumber(x){
   if(x == null) return 0;
   const s = String(x).replace(/\s/g,'').replace(/,/g,'.').replace(/[^\d.]/g,'');
@@ -386,7 +433,6 @@ function remainPercent(remain, total){
   if(remain > 0) return 100;
   return 0;
 }
-
 function ynIconForce(val){
   if(val == null) return "❌";
   if(typeof val === "object" && "value" in val) val = val.value;
@@ -414,7 +460,6 @@ function ynIconForce(val){
 
   return "❌";
 }
-
 function dateOnly(v){
   if(!v) return "";
   const s = String(v).trim();
@@ -509,6 +554,7 @@ async function cekKuota(){
 
     let html = `
       <div class="infoCard">
+        <div class="resultTitle">🧾 RESULT</div>
         <div class="infoRow"><div class="k">MSISDN</div><div class="c">:</div><div class="v">${escapeHtml(ms)}</div></div>
         <div class="infoRow"><div class="k">Tipe Kartu</div><div class="c">:</div><div class="v">${escapeHtml(tipeKartu)}</div></div>
         <div class="infoRow"><div class="k">Jaringan</div><div class="c">:</div><div class="v">${escapeHtml(jaringan)}</div></div>
@@ -523,7 +569,7 @@ async function cekKuota(){
         <div class="hr"></div>
         <div class="volteNote">
           <div>📶</div>
-          <div><b>VoLTE</b> adalah panggilan telepon yang <b>tetap bisa internetan</b>.</div>
+          <div><b>VoLTE</b> adalah panggilan telepon yang tetap bisa internetan saat menelpon.</div>
         </div>
       </div>
     `;
@@ -553,7 +599,7 @@ async function cekKuota(){
 
         const benefits = pkg?.benefits || [];
         if(!benefits.length){
-          html += `<div class="benefit" style="color:rgba(238,246,255,.75);font-size:10px;">Tidak ada detail kuota.</div>`;
+          html += `<div class="benefit" style="color:rgba(238,246,255,.75);font-size:11px;">Tidak ada detail kuota.</div>`;
         }else{
           benefits.forEach(b=>{
             const totalN  = toNumber(b?.quota);
@@ -577,7 +623,7 @@ async function cekKuota(){
 
       html += `</div>`;
     }else{
-      html += `<div class="infoCard" style="margin-top:8px;">Tidak ada data paket ditemukan.</div>`;
+      html += `<div class="infoCard" style="margin-top:10px;">Tidak ada data paket ditemukan.</div>`;
     }
 
     box.innerHTML = html;
